@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { UsersItem } from "../UsersItem/UsersItem";
+
 import {
   getUsers,
   getUsersRefreshStatus,
 } from "../../redux/users/userSelectors";
 import { fetchUsers } from "../../redux/users/usersOperation";
 
-import {
-  Section,
-  Window,
-  Logo,
-  Banner,
-  Rectangle,
-  AvatarBorder,
-  AvatarWrapper,
-  Avatar,
-  TweetsCounter,
-  FollowersCounter,
-  Button,
-} from "./Tweets.styled";
+import { Section, Window, Logo } from "./UsersList.styled";
 
-export const Tweets = () => {
+export const UsersList = () => {
   const dispatch = useDispatch();
   const usersInStorage = useSelector(getUsers);
 
@@ -36,8 +26,6 @@ export const Tweets = () => {
     setUsers(usersInStorage);
   }, [dispatch]);
 
-  console.log(users);
-
   // useEffect(() => {
   //   if (usersInStorage) {
   //     setTweets(usersInStorage[0].tweets);
@@ -47,19 +35,8 @@ export const Tweets = () => {
     <Section>
       <Window>
         <Logo />
-        <Banner />
-        <Rectangle />
-        <AvatarBorder />
-        <AvatarWrapper>
-          <Avatar avatar={false} />
-        </AvatarWrapper>
-        <TweetsCounter>
-          {/* {users && users[0] && users[0].tweets ? users[0].tweets : 0} tweets */}
-        </TweetsCounter>
-        <FollowersCounter>100,500 Followers</FollowersCounter>
-        <Button isFollowed={isFollowed}>
-          {isFollowed ? "Following" : "Follow"}
-        </Button>
+        {users.length > 0 &&
+          users.map((user) => <UsersItem key={user.id} currentUser={user} />)}
       </Window>
     </Section>
   );
