@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import banner from "../../img/banner.png";
-import logo from "../../img/logo.png";
-import rectangle from "../../img/rectangle.png";
-import defaultAvatar from "../../img/defaultAvatar.png";
+import banner from "../../../img/banner.png";
+import logo from "../../../img/logo.png";
+import rectangle from "../../../img/rectangle.png";
+import defaultAvatar from "../../../img/defaultAvatar.png";
 
 export const Section = styled.div`
   display: flex;
@@ -18,6 +18,7 @@ export const Window = styled.div`
   justify-content: center;
   align-items: center;
   width: 380px;
+  height: 460px;
   padding: 28px 36px 36px 36px;
   background: ${(p) => p.theme.colors.primaryBgColor};
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
@@ -78,7 +79,9 @@ export const AvatarWrapper = styled.div`
 
 export const Avatar = styled.img.attrs((props) => ({
   src: props.avatar ? props.avatar : defaultAvatar,
-}))``;
+}))`
+  width: 100%;
+`;
 
 export const TweetsCounter = styled.p`
   margin-bottom: 16px;

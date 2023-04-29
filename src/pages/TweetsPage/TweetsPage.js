@@ -1,6 +1,7 @@
-import { Tweets } from "../../components/Tweets/Tweets";
+import { UsersList } from "../../components/tweetsPage/UsersList/UsersList";
 
 const TweetsPage = () => {
-  return <Tweets />;
+  return <UsersList />;
 };
+
 export default TweetsPage;

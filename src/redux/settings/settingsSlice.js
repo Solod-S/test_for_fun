@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as usersOperation from "../users/usersOperation";
 
-const initialState = { data: [], isRefreshing: false };
+const initialState = { userslimit: 3, page: 1 };
 
-const UserSlice = createSlice({
-  name: "users",
+const SettingsSlice = createSlice({
+  name: "settings",
   initialState,
   extraReducers: (builder) =>
     builder
@@ -34,4 +34,4 @@ const UserSlice = createSlice({
       }),
 });
 
-export default UserSlice.reducer;
+export default SettingsSlice.reducer;

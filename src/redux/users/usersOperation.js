@@ -9,3 +9,15 @@ export const fetchUsers = createAsyncThunk("users/", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const updateFollower = createAsyncThunk(
+  "users/id",
+  async (user, thunkAPI) => {
+    try {
+      const data = await usersAPI.updateFollower(user);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

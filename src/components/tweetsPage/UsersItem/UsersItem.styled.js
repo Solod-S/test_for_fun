@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import banner from "../../img/banner.png";
-import logo from "../../img/logo.png";
-import defaultAvatar from "../../img/defaultAvatar.png";
+import { NavLink } from "react-router-dom";
+import defaultAvatar from "../../../img/defaultAvatar.png";
 
-export const Item = styled.div`
+export const Item = styled.li`
   &:hover {
     transform: scale(1.05);
   }
@@ -15,6 +14,9 @@ export const Item = styled.div`
   padding: 10px;
   border-radius: ${(p) => p.theme.radius.normal};
   transition: transform 0.2s ease-in-out;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
 `;
 
 export const AvatarBorder = styled.div`
@@ -51,18 +53,48 @@ export const Title = styled.h2`
   text-transform: uppercase;
 `;
 
-export const Button = styled.button`
+export const TweetsCounterTitle = styled.h2`
+  text-decoration: underline;
+  font-size: ${(p) => p.theme.fontSizes.xxs};
+  font-weight: ${(p) => p.theme.fontWeight.normal};
+  line-height: 1.2;
+  text-transform: uppercase;
+`;
+
+export const TweetsCounter = styled.p`
+  font-size: ${(p) => p.theme.fontSizes.xxxs};
+  font-weight: ${(p) => p.theme.fontWeight.normal};
+  line-height: 1.2;
+  text-transform: uppercase;
+`;
+
+export const FollowersCounterTitle = styled.h2`
+  text-decoration: underline;
+  font-size: ${(p) => p.theme.fontSizes.xxs};
+  font-weight: ${(p) => p.theme.fontWeight.normal};
+  line-height: 1.2;
+  text-transform: uppercase;
+`;
+
+export const FollowersCounter = styled.p`
+  font-size: ${(p) => p.theme.fontSizes.xxxs};
+  font-weight: ${(p) => p.theme.fontWeight.normal};
+  line-height: 1.2;
+  text-transform: uppercase;
+`;
+
+export const NavigateTo = styled(NavLink)`
   &:hover {
-    transform: scale(1.05);
+    background: ${(p) => p.theme.colors.accentColor};
   }
-  padding: 2px 12px;
+  padding: 6px 12px;
   font-size: ${(p) => p.theme.fontSizes.xxxs};
   font-weight: ${(p) => p.theme.fontWeight.bolt};
   color: ${(p) => p.theme.colors.secondaryTextColor};
   cursor: pointer;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  transition: transform 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
   background-color: ${(p) =>
     p.isFollowed
       ? p.theme.colors.accentColor
