@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { SelectDrop } from "./DropdownMenu.styled";
+import { bottom } from "styled-system";
 
 const options = [
   { value: "show all", label: "show all" },
@@ -30,7 +31,7 @@ export function DropdownMenu({ selectedOption, setSelectedOption }) {
   }, []);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", marginBottom: "15px" }}>
       <SelectDrop
         value={
           options.find((option) => option.value === searchQuery.get("query"))

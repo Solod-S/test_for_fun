@@ -11,7 +11,7 @@ export const Banner = styled.img.attrs({
 
 export const List = styled.ul`
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 `;
 
 export const Button = styled.button`
