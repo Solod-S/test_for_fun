@@ -41,30 +41,4 @@ body {
   scroll-behavior: smooth;
 }
 
-.img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-.container {
-  /* padding-left: ${(p) => p.theme.space[4]}px;
-  padding-right: ${(p) => p.theme.space[4]}px;
-  margin-left: auto;
-  margin-right: auto; */
-  width: 100vh;
-  height: 100vh
-
-}
-
-.section {
-  padding-top: ${(p) => p.theme.space[6]}px;
-  padding-bottom: ${(p) => p.theme.space[6]}px;
-}
-
-.accentColor {
-    color: ${(p) => p.theme.colors.accentTextColor};
-    background: ${(p) => p.theme.colors.accentBgColor};
-  }
-
-
 `;

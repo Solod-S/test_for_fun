@@ -1,30 +1,10 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
 import banner from "../../../img/banner.png";
 import logo from "../../../img/logo.png";
 import rectangle from "../../../img/rectangle.png";
 import defaultAvatar from "../../../img/defaultAvatar.png";
-
-export const Section = styled.div`
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Window = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 380px;
-  height: 460px;
-  padding: 28px 36px 36px 36px;
-  background: ${(p) => p.theme.colors.primaryBgColor};
-  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
-  border-radius: ${(p) => p.theme.radius.normal};
-  overflow: hidden;
-`;
 
 export const Logo = styled.img.attrs({
   src: logo,
@@ -45,6 +25,7 @@ export const Banner = styled.img.attrs({
 export const Rectangle = styled.img.attrs({
   src: rectangle,
 })`
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,10 +62,13 @@ export const Avatar = styled.img.attrs((props) => ({
   src: props.avatar ? props.avatar : defaultAvatar,
 }))`
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const TweetsCounter = styled.p`
   margin-bottom: 16px;
+  text-align: center;
   font-size: ${(p) => p.theme.fontSizes.s};
   font-weight: ${(p) => p.theme.fontWeight.normal};
   line-height: 1.2;
@@ -93,6 +77,7 @@ export const TweetsCounter = styled.p`
 
 export const FollowersCounter = styled.p`
   margin-bottom: 26px;
+  text-align: center;
   font-size: ${(p) => p.theme.fontSizes.s};
   font-weight: ${(p) => p.theme.fontWeight.normal};
   line-height: 1.2;
@@ -115,4 +100,18 @@ export const Button = styled.button`
     p.isFollowed
       ? p.theme.colors.accentColor
       : p.theme.colors.primaryTextColor};
+`;
+
+export const GoBackLink = styled(NavLink)`
+  margin-bottom: 2px;
+  font-size: ${(p) => p.theme.fontSizes.xs};
+  font-weight: ${(p) => p.theme.fontWeight.normal};
+  color: red;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: ${(p) => p.theme.colors.accentColor};
+  }
+  &.active {
+    color: ${(p) => p.theme.colors.accentColor};
+  }
 `;

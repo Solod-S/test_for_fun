@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+
 import defaultAvatar from "../../../img/defaultAvatar.png";
 
 export const Item = styled.li`
@@ -11,7 +12,7 @@ export const Item = styled.li`
   align-items: center;
   justify-content: space-between;
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
-  padding: 10px;
+  padding: 5px;
   border-radius: ${(p) => p.theme.radius.normal};
   transition: transform 0.2s ease-in-out;
   &:not(:last-child) {
@@ -25,7 +26,8 @@ export const AvatarBorder = styled.div`
   align-items: center;
   width: 40px;
   height: 40px;
-  background: ${(p) => p.theme.colors.primaryTextColor};
+  background: ${(props) =>
+    props.subscribed ? "red" : props.theme.colors.primaryTextColor};
   box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
     inset 0px -2.19582px 4.39163px #ae7be3,
     inset 0px 4.39163px 3.29372px #fbf8ff;
@@ -43,6 +45,8 @@ export const Avatar = styled.img.attrs((props) => ({
   src: props.avatar ? props.avatar : defaultAvatar,
 }))`
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 `;
 

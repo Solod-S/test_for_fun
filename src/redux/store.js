@@ -1,7 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import storage from "redux-persist/lib/storage";
-
 import {
   persistStore,
   persistReducer,
@@ -25,16 +23,11 @@ const userPersistConfig = {
   key: "user",
   storage,
 };
-const settingsPersistConfig = {
-  key: "settings",
-  storage,
-};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, AuthSlice),
     users: persistReducer(userPersistConfig, UserSlice),
-    // settings: persistReducer(settingsPersistConfig),
   },
 
   middleware(getDefaultMiddleware) {

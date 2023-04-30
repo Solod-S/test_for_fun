@@ -7,6 +7,7 @@ import { logIn } from "../redux/auth/authOperation";
 import { SharedLayout } from "./shared/SharedLayout/SharedLayout";
 import TweetsPage from "../pages/TweetsPage/TweetsPage";
 import TweetPage from "../pages/TweetPage/TweetPage";
+import Homepage from "../pages/Homepage/Homepage";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
     <>
       <Routes>
         <Route end path="/" element={<SharedLayout />}>
-          <Route index element={<TweetsPage />} />
+          <Route index element={<Homepage />} />
           <Route path="tweets" element={<TweetsPage />} />
           <Route path="tweets/:tweetId" element={<TweetPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,34 +1,6 @@
 import styled from "styled-components";
+
 import banner from "../../../img/banner.png";
-import logo from "../../../img/logo.png";
-
-export const Section = styled.div`
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Window = styled.div`
-  position: relative;
-  display: block;
-  width: 380px;
-  height: 460px;
-  padding: 28px 36px 36px 36px;
-  background: ${(p) => p.theme.colors.primaryBgColor};
-  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
-  border-radius: ${(p) => p.theme.radius.normal};
-  overflow: auto;
-`;
-
-export const Logo = styled.img.attrs({
-  src: logo,
-})`
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 76px;
-`;
 
 export const Banner = styled.img.attrs({
   src: banner,
@@ -37,4 +9,26 @@ export const Banner = styled.img.attrs({
   margin-bottom: 88px;
 `;
 
-export const List = styled.ul``;
+export const List = styled.ul`
+  width: 100%;
+  margin-bottom: 12px;
+`;
+
+export const Button = styled.button`
+  &:hover {
+    transform: scale(1.05);
+  }
+  margin: 0 auto;
+  padding: 8px 10px;
+  font-size: ${(p) => p.theme.fontSizes.xxs};
+  font-weight: ${(p) => p.theme.fontWeight.bolt};
+  color: ${(p) => p.theme.colors.secondaryTextColor};
+  cursor: pointer;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+  transition: transform 0.2s ease-in-out;
+  background-color: ${(p) =>
+    p.isFollowed
+      ? p.theme.colors.accentColor
+      : p.theme.colors.primaryTextColor};
+`;

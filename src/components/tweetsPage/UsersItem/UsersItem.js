@@ -1,3 +1,7 @@
+import { useSelector } from "react-redux";
+
+import { getAccountInfo } from "../../../redux/auth/authSelectors";
+
 import {
   Item,
   AvatarBorder,
@@ -11,13 +15,17 @@ import {
   NavigateTo,
 } from "./UsersItem.styled";
 
-export const UsersItem = ({ currentUser }) => {
+export const UsersItem = ({ currentUser, location }) => {
+  const myInfoInStorage = useSelector(getAccountInfo);
+
   const { user, avatar } = currentUser;
 
   return (
     <Item>
       <div style={{ flex: 0.5 }}>
-        <AvatarBorder>
+        <AvatarBorder
+          subscribed={currentUser.followersId.includes(myInfoInStorage.id)}
+        >
           <AvatarWrapper>
             <Avatar avatar={avatar} />
           </AvatarWrapper>
@@ -39,7 +47,9 @@ export const UsersItem = ({ currentUser }) => {
         </FollowersCounter>
       </div>
       <div style={{ flex: 0.5 }}>
-        <NavigateTo to={`/tweets/${currentUser.id}`}>open</NavigateTo>
+        <NavigateTo to={`/tweets/${currentUser.id}`} state={{ from: location }}>
+          open
+        </NavigateTo>
       </div>
     </Item>
   );

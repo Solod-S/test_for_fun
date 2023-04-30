@@ -21,7 +21,6 @@ const UserSlice = createSlice({
       .addCase(
         usersOperation.updateFollower.fulfilled,
         (state, { payload }) => {
-          console.log(`payload`, payload);
           let index = state.data.findIndex((user) => user.id === payload.id);
           if (index !== -1) {
             state.data[index] = payload;

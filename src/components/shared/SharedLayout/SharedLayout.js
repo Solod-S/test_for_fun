@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 
+import { Navigation } from "../Navigation/Navigation";
+import { Section, Window } from "../Containers/Containers.styled";
 export const SharedLayout = () => {
   return (
-    <>
-      <Suspense>
-        <Outlet />
-      </Suspense>
-    </>
+    <Section>
+      <Window>
+        <Navigation />
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </Window>
+    </Section>
   );
 };

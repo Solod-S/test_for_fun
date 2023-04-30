@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import { Loader } from "../../shared/Loader/Loader";
 
@@ -9,8 +9,6 @@ import { getUsers } from "../../../redux/users/userSelectors";
 import { getAccountInfo } from "../../../redux/auth/authSelectors";
 
 import {
-  Section,
-  Window,
   Logo,
   Banner,
   Rectangle,
@@ -20,10 +18,13 @@ import {
   TweetsCounter,
   FollowersCounter,
   Button,
+  GoBackLink,
 } from "./Tweet.styled";
 
 export const Tweet = () => {
   const { tweetId } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/tweets";
   const dispatch = useDispatch();
 
   const usersInStorage = useSelector(getUsers);
@@ -34,7 +35,9 @@ export const Tweet = () => {
 
   useEffect(() => {
     setUser(usersInStorage.find((user) => user.id === tweetId));
-    setisLoading(false);
+    setTimeout(() => {
+      setisLoading(false);
+    }, 250);
   }, [tweetId, usersInStorage]);
 
   const handleClick = () => {
@@ -59,35 +62,34 @@ export const Tweet = () => {
   const alreadyFollowed = user && user.followersId.includes(myInfoInStorage.id);
 
   return (
-    <Section>
-      <Window>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <Logo />
-            <Banner />
-            <Rectangle />
-            <AvatarBorder />
-            <AvatarWrapper>
-              <Avatar avatar={user.avatar} />
-            </AvatarWrapper>
-            <TweetsCounter>
-              {user.tweets ? parseInt(user.tweets).toLocaleString("en") : 0}{" "}
-              tweets
-            </TweetsCounter>
-            <FollowersCounter>
-              {user.followers
-                ? parseInt(user.followers).toLocaleString("en")
-                : 0}{" "}
-              Followers
-            </FollowersCounter>
-            <Button onClick={handleClick} isFollowed={alreadyFollowed}>
-              {alreadyFollowed ? "Following" : "Follow"}
-            </Button>
-          </>
-        )}
-      </Window>
-    </Section>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Logo />
+          <Banner />
+          <GoBackLink end="true" to={backLinkHref}>
+            GO BACK
+          </GoBackLink>
+          <Rectangle />
+          <AvatarBorder />
+          <AvatarWrapper>
+            <Avatar avatar={user.avatar} />
+          </AvatarWrapper>
+          <TweetsCounter>
+            {user.tweets ? parseInt(user.tweets).toLocaleString("en") : 0}{" "}
+            tweets
+          </TweetsCounter>
+          <FollowersCounter>
+            {user.followers ? parseInt(user.followers).toLocaleString("en") : 0}{" "}
+            Followers
+          </FollowersCounter>
+          <Button onClick={handleClick} isFollowed={alreadyFollowed}>
+            {alreadyFollowed ? "Following" : "Follow"}
+          </Button>
+        </>
+      )}
+    </>
   );
 };

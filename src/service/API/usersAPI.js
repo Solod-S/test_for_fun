@@ -1,7 +1,7 @@
 import { axiosInstance } from "./axios";
 
 export const fetchUsers = () => {
-  return axiosInstance.get(`/users?limit=5&page=1`).then(({ data }) => data);
+  return axiosInstance.get(`/users`).then(({ data }) => data);
 };
 
 export const fetchUserById = async (id) => {
