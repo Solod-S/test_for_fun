@@ -26,8 +26,18 @@ const MyInfo = () => {
       </AvatarWrapper>
 
       <Name>{myInfoInStorage.user}</Name>
-      <Tweets>tweets: {myInfoInStorage.tweets}</Tweets>
-      <Followers>followers: {myInfoInStorage.followers}</Followers>
+      <Tweets>
+        tweets:{" "}
+        {myInfoInStorage.tweets
+          ? parseInt(myInfoInStorage.tweets).toLocaleString("en")
+          : 0}
+      </Tweets>
+      <Followers>
+        followers:{" "}
+        {myInfoInStorage.followers
+          ? parseInt(myInfoInStorage.followers).toLocaleString("en")
+          : 0}
+      </Followers>
       <LogOutBtn>Log out</LogOutBtn>
     </>
   );
