@@ -5,11 +5,11 @@ export const About = () => {
     <>
       <Abaut>Abaut</Abaut>
       <Text>
-        The test task that I completed uses React, Redux, and Redux-Thunks,
-        styled-components and React Router DOM. This project also includes both
-        public and private routes. Public routes are accessible to all users,
-        while private routes require authentication and can only be accessed by
-        logged-in users.
+        The test task that I completed uses React, Redux, Redux-Thunks,
+        Styled-Components/System and React Router DOM. This project also
+        includes both public and private routes. Public routes are accessible to
+        all users, while private routes require authentication and can only be
+        accessed by logged-in users.
       </Text>
       <LinkList>
         <LinkItem>
