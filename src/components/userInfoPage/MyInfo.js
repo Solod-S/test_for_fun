@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { getAccountInfo } from "../../redux/auth/authSelectors";
+import { logOut } from "../../redux/auth/authSlice";
 
 import {
   Banner,
@@ -12,10 +13,15 @@ import {
   Tweets,
   Followers,
 } from "./MyInfo.styled";
-
+// logOut;
 const MyInfo = () => {
+  const dispatch = useDispatch();
   const myInfoInStorage = useSelector(getAccountInfo);
-  console.log(myInfoInStorage, myInfoInStorage.user);
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
+
   return (
     <>
       <Banner />
@@ -38,7 +44,7 @@ const MyInfo = () => {
           ? parseInt(myInfoInStorage.followers).toLocaleString("en")
           : 0}
       </Followers>
-      <LogOutBtn>Log out</LogOutBtn>
+      <LogOutBtn onClick={handleLogOut}>Log out</LogOutBtn>
     </>
   );
 };
