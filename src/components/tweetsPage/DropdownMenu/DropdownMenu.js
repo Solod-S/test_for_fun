@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { SelectDrop } from "./DropdownMenu.styled";
-import { bottom } from "styled-system";
 
 const options = [
   { value: "show all", label: "show all" },
