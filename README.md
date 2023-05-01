@@ -3,6 +3,7 @@
 [![runs with reactnative](https://img.shields.io/badge/Runs%20with%20React-000.svg?style=flat-square&logo=React&labelColor=f3f3f3&logoColor=61DAFB)](https://reactnative.dev/)
 [![runs with router dom](https://img.shields.io/badge/Runs%20with%20React_Router_Dom-000.svg?style=flat-square&logo=React&labelColor=f3f3f3&logoColor=blue)](https://expo.io/)
 [![runs with redux](https://img.shields.io/badge/Runs%20with%20Redux-000.svg?style=flat-square&logo=Redux&labelColor=f3f3f3&logoColor=7247B5)](https://redux.js.org/)
+[![runs with MockAPI](https://img.shields.io/badge/Runs%20with%20MockAPI-000.svg?style=flat-square&logo=firebase&labelColor=f3f3f3&logoColor=7247B5)](https://redux.js.org/)
 
 <!-- PROJECT LOGO -->
 
@@ -15,7 +16,7 @@
 ## ℹ️ About The Project
 
 The test task that I completed uses React, Redux, Redux-Thunks,
-Styled-Components/System and React Router DOM. This project also
+Styled-Components/System, React Router DOM and MockAPI. This project also
 includes both public and private routes. Public routes are accessible to
 all users, while private routes require authentication and can only be
 accessed by logged-in users.
