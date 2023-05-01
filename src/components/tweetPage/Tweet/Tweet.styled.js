@@ -8,6 +8,7 @@ import defaultAvatar from "../../../img/defaultAvatar.png";
 
 export const Logo = styled.img.attrs({
   src: logo,
+  alt: "logo",
 })`
   position: absolute;
   top: 20px;
@@ -17,6 +18,7 @@ export const Logo = styled.img.attrs({
 
 export const Banner = styled.img.attrs({
   src: banner,
+  alt: "banner",
 })`
   width: 308px;
   margin-bottom: 88px;
@@ -24,6 +26,7 @@ export const Banner = styled.img.attrs({
 
 export const Rectangle = styled.img.attrs({
   src: rectangle,
+  alt: "rectangle",
 })`
   width: 100%;
   position: absolute;
@@ -60,6 +63,7 @@ export const AvatarWrapper = styled.div`
 
 export const Avatar = styled.img.attrs((props) => ({
   src: props.avatar ? props.avatar : defaultAvatar,
+  alt: "avatar",
 }))`
   width: 100%;
   height: 100%;

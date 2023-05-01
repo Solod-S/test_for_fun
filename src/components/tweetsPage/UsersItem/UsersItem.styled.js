@@ -43,6 +43,7 @@ export const AvatarWrapper = styled.div`
 
 export const Avatar = styled.img.attrs((props) => ({
   src: props.avatar ? props.avatar : defaultAvatar,
+  alt: "avatar",
 }))`
   width: 100%;
   height: 100%;

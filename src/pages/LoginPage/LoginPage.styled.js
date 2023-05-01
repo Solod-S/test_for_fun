@@ -3,6 +3,7 @@ import logIn from "../../img/logIn.png";
 
 export const Banner = styled.img.attrs({
   src: logIn,
+  alt: "logIn",
 })`
   width: 208px;
   margin-bottom: 8px;

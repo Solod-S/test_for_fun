@@ -4,6 +4,7 @@ import banner from "../../../img/banner.png";
 
 export const Banner = styled.img.attrs({
   src: banner,
+  alt: "avatar",
 })`
   width: 308px;
   margin-bottom: 88px;
