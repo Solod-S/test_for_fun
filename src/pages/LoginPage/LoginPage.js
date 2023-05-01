@@ -14,8 +14,8 @@ const LoginPage = () => {
   return (
     <>
       <Banner />
-      <Tittle>Please sign-up </Tittle>
-      <LogInBtn onClick={handleLogIn}>Sign-up</LogInBtn>
+      <Tittle>Please log-in </Tittle>
+      <LogInBtn onClick={handleLogIn}>log-in</LogInBtn>
     </>
   );
 };
